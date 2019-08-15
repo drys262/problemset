@@ -1,10 +1,33 @@
 {
   "name": "problemset",
   "version": "1.0.0",
+  "scripts": {
+    "start": "node ./node_modules/.bin/babel-node index.js",
+    "qs1": "node ./node_modules/.bin/babel-node question_one.js",
+    "qs2": "node ./node_modules/.bin/babel-node question_two.js",
+    "qs3": "node ./node_modules/.bin/babel-node question_three.js",
+    "all": "npm run qs1 && npm run qs3 && npm run qs2"
+  },
+  "babel": {
+    "env": {
+      "test": {
+        "presets": [
+          "@babel/preset-env"
+        ]
+      }
+    }
+  },
   "dependencies": {
-    "rand-token": "^0.2.1"
+    "core-js": "^3.2.1",
+    "generic-pool": "^3.7.1",
+    "rand-token": "^0.4.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
     "mocha": "^2.4.5"
   }
 }

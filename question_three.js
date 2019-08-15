@@ -1,43 +1,6 @@
-// solutions here
-
-import { RandStream, asyncOp } from "./lib/lib";
-import { EventEmitter } from "events";
-import genericPool from "generic-pool";
-
-// 1. Asynchronous Operations
-
-let inputs = ["A", ["B", "C"], "D"];
-
-const doAsync = async arr => {
-  for (const value of arr) {
-    if (!Array.isArray(value)) await asyncOp(value);
-    else await Promise.all(value.map(v => asyncOp(v)));
-  }
-};
-
-doAsync(inputs);
-
-// 2. Streams
-
-class RandStringSource extends EventEmitter {
-  constructor(randStream) {
-    super();
-    randStream.on("data", data =>
-      data
-        .split(".")
-        .filter(value => value !== "")
-        .slice(0, -1)
-        .forEach(value => this.emit("data", value))
-    );
-  }
-}
-
-let source = new RandStringSource(new RandStream());
-source.on("data", data => {
-  console.log(data);
-});
-
 // 3. Resource Pooling
+
+import genericPool from "generic-pool";
 
 class Resource {
   constructor(index) {
