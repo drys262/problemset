@@ -7,6 +7,12 @@ Any third party `npm` modules may be used as long it is added as `dependency` in
 
 Solutions to the programming challenges should be put on `index.js`.
 
+## How to run solutions
+* `npm run all` to run all solutions in series.
+* `npm run qs1` to run question 1. (Asynchronous Operations)
+* `npm run qs2` to run question 2. (Streams)
+* `npm run qs3` to run question 3. (Resource Pooling)
+* `npm start` to run all solutions in parallel. (index.js)
 
 ## Environment
 * NodeJS `v5.7.1` or later
